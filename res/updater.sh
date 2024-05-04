@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-DATA_DIR=${XDG_DATA_HOME:-$HOME/.local/share}
-CONFIG_DIR=${XDG_CONFIG_HOME:-$HOME/.config}
+DATA_DIR=$HOME/.local/share
+CONFIG_DIR=$HOME/.config
 APP_DATA_DIR=$DATA_DIR/figma-linux
 
 get_latest_release() {
-  curl -Ls --silent "https://github.com/ChugunovRoman/figma-linux-font-helper/releases/latest" | perl -ne 'print "$1\n" if /v([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,4})/' | head -1;
+  curl -Ls --silent "https://github.com/shripadk/figma-linux-font-helper/releases/latest" | perl -ne 'print "$1\n" if /v([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,4})/' | head -1;
 }
 
 get_latest_release_link_download() {
   local latest=$(get_latest_release);
-  echo "http://github.com/ChugunovRoman/figma-linux-font-helper/releases/download/v${latest}/fonthelper.tar.xz"
+  echo "http://github.com/shripadk/figma-linux-font-helper/releases/download/v${latest}/fonthelper.tar.xz"
 }
 
 have_new_version() {
