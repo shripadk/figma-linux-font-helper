@@ -14,7 +14,7 @@ archive:
 	cargo build --release
 	cp -rf ./target/release/font_helper ./res/fonthelper
 	cd ./res
-	tar cJf ../fonthelper.tar.xz ./{*.service,fonthelper*,updater.sh}
+	tar -czvf ../fonthelper.tar.gz ./{*.service,fonthelper*,updater.sh}
 
 release:
 	git tag -a v$(VER) -m "Release v$(VER)"

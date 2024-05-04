@@ -38,14 +38,14 @@ jobs:
           cargo build --release
           cp -rf ./target/release/font_helper ./res/fonthelper
           cd ./res
-          tar cJf ../fonthelper.tar.xz ./{*.service,fonthelper*,updater.sh}
+          tar -czvf ../fonthelper.tar.gz ./{*.service,fonthelper*,updater.sh}
 
       - name: Cache artifacts
         id: cache-artifacts
         uses: actions/upload-artifact@v2
         with:
           name: main
-          path: ./fonthelper.tar.xz
+          path: ./fonthelper.tar.gz
 
   release:
     name: Upload assets
@@ -71,6 +71,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           name: Font Helper ${{ steps.version.outputs.release }}
-          files: ./fonthelper.tar.xz
+          files: ./fonthelper.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

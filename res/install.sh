@@ -8,7 +8,7 @@ get_latest_release() {
 
 get_latest_release_link_download() {
   local latest=$(get_latest_release);
-  echo "http://github.com/shripadk/figma-linux-font-helper/releases/download/v${latest}/fonthelper.tar.xz"
+  echo "http://github.com/shripadk/figma-linux-font-helper/releases/download/v${latest}/fonthelper.tar.gz"
 }
 
 download() {
@@ -45,16 +45,16 @@ EOF
   fi
 
   pushd $APP_DATA_DIR
-  tar xJf /tmp/fonthelper.tar.xz ./fonthelper
-  tar xJf /tmp/fonthelper.tar.xz ./updater.sh
+  tar xzf /tmp/fonthelper.tar.gz ./fonthelper
+  tar xzf /tmp/fonthelper.tar.gz ./updater.sh
   chmod +x ./fonthelper ./updater.sh
   popd
 
   mkdir -p $CONFIG_DIR/systemd/user
   pushd $CONFIG_DIR/systemd/user
 
-  tar xJOf /tmp/fonthelper.tar.xz ./figma-fonthelper.service | envsubst > figma-fonthelper.service
-  tar xJOf /tmp/fonthelper.tar.xz ./figma-fonthelper-updater.service | envsubst > figma-fonthelper-updater.service
+  tar xzOf /tmp/fonthelper.tar.gz ./figma-fonthelper.service | envsubst > figma-fonthelper.service
+  tar xzOf /tmp/fonthelper.tar.gz ./figma-fonthelper-updater.service | envsubst > figma-fonthelper-updater.service
 
   chmod 644 figma-fonthelper.service
   chmod 644 figma-fonthelper-updater.service
