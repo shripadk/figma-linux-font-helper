@@ -17,7 +17,7 @@ Run this in your terminal
 <!-- curl https://raw.githubusercontent.com/ChugunovRoman/figma-linux-font-helper/master/res/install.sh | sudo bash -->
 <!-- removed tinyurl because piping to bash isn't the best idea by itself. The least we can do is to not add a third-party redirect in between -->
 ```bash
-curl -L https://raw.githubusercontent.com/Figma-Linux/figma-linux-font-helper/master/res/install.sh | bash
+curl -L https://raw.githubusercontent.com/shripadk/figma-linux-font-helper/master/res/install.sh | bash
 ```
 ## How it works
 
